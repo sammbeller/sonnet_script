@@ -27,9 +27,13 @@ for i in range(1, 151):
   sonnet = document.find('div', {'id':'sonnet'})
   current_el.insert_after(sonnet)
   current_el = sonnet
+  link = new_soup.new_tag('<li><a href="#sonnet' + str(i) + '">' + str(i) + '</a></li>')
+  index.insert(i, link)
 
   title = sonnet.find('h1')
   title['id'] = 'sonnet' + str(i)
+
+
   if i in FAVORITES:
     title['data-fav'] = 'true'
 
